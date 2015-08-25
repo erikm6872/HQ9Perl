@@ -22,16 +22,8 @@ More Information:
 ## Dependencies
 
 **Requires the Perl Switch module.** You can install it by running the following commands.
-* ActivePerl(Windows)
-	`>ppm install Switch`
-* apt-get(Raspbian/Ubuntu)
-	`$ sudo apt-get install libswitch-perl`
-* CPAN(Linux)
-	```
-	$ cpan
-	cpan[1]> install Switch
-	cpan[1]> exit
-	```
+* ActivePerl(Windows): `>ppm install Switch`
+* apt-get(Raspbian/Ubuntu): `$ sudo apt-get install libswitch-perl`
 
 **Environments confirmed to work**
 * ActivePerl 5.20.1 on Windows 10
