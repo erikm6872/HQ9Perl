@@ -11,7 +11,7 @@ if($numArgs != 1){
 	exit;
 }
 
-#Accumulator variable. This serves no purpose and cannot be accessed by the user.
+#Accumulator variable. This serves no purpose and cannot be accessed.
 my $accum = 0;
 
 #Set input filename variable
@@ -29,10 +29,14 @@ say "         by Erik McLaughlin";
 say "      http://github.com/erikm6872";
 say "***************************************";
 
-
+#Process each line of the file separately
 while(my $row = <$fh>){
 	chomp $row;
+    
+    #Convert line string to char array
 	my @chars = split //, $row;
+    
+    #Process each char
     foreach my $cmd (@chars) {
         switch($cmd) {
             
@@ -46,6 +50,9 @@ while(my $row = <$fh>){
                 say "Hello World!";
             }
             case "Q"{
+                
+                #Quine Functionality
+                #Open the input file again and print everything in it.
                 open(my $fh, '<:encoding(UTF-8)', $fileName)
                     or die "Could not open file '$fileName' $!";
                 while(my $row = <$fh>){
@@ -54,6 +61,9 @@ while(my $row = <$fh>){
                 }
             }
             case "9"{
+                
+                #Print 99 Bottles of Beer
+                #Start loop at 99 and go down
                 for (my $i=99; $i > 0; $i--) {
                     if ($i == 1) {
                         say "$i bottle of beer on the wall";
@@ -64,6 +74,8 @@ while(my $row = <$fh>){
                         say "$i bottles of beer";
                     }
                     say "Take one down, pass it around";
+                    
+                    #Declaring a new variable is easier to print
                     my $minOne = $i-1;
                     if ($minOne == 1) {
                         say "$minOne bottle of beer on the wall\n";
@@ -74,12 +86,17 @@ while(my $row = <$fh>){
                 }
             }
             case "+"{
+                #Increments the accumulator. Again, this variable serves no purpose.
                 $accum = $accum + 1; 
             }
+            
+            #If a whitespace character is encountered, print error message and exit
             case " " {
                 die("Error: Unknown keyword [whitespace]\n");
                 
             }
+            
+            #If any other character is encountered, print error message and exit
             else{
                 die("Error: Unknown keyword $cmd\n");
             }
