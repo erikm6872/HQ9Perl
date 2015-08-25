@@ -3,6 +3,11 @@ use strict;
 use warnings;
 use Switch;
 
+#***************************************
+#         HQ9Perl Interpreter
+#          Erik C McLaughlin
+#      http://github.com/erikm6872
+#***************************************
 
 #Print usage statement if no input file specified
 my $numArgs = $#ARGV + 1;
@@ -22,13 +27,6 @@ say "Opening $fileName...\n";
 open(my $fh, '<:encoding(UTF-8)', $fileName)
 	or die "Could not open file '$fileName' $!";
     
-#Print header
-say "***************************************";
-say "         HQ9Perl Interpreter";
-say "         by Erik McLaughlin";
-say "      http://github.com/erikm6872";
-say "***************************************";
-
 #Process each line of the file separately
 while(my $row = <$fh>){
 	chomp $row;
