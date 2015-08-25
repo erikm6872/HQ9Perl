@@ -1,6 +1,6 @@
 ## HQ9Perl
 
-HQ9Perl is a simple HQ9+ interpreter written in Perl. 
+As the name implies, HQ9Perl is a simple HQ9+ interpreter written in Perl. 
 
 ## Background
 
