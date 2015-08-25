@@ -9,15 +9,15 @@ HQ9+ is an esoteric programming language created by Cliff L Biffle. It consists 
 * H : Print "Hello World!"
 * Q : Print the program's source code (quine)
 * 9 : Print the full lyrics to "99 Bottles of Beer"
-* + : Increment the accumulator. This variable serves no purpose and cannot be accessed by the user in any way.
+* + : Increment the accumulator. This variable serves no purpose and cannot be accessed.
 
-**Any characters other than the four listed above (including whitespace) are illegal. Comments are also not supported.**
+**Any characters other than the four listed above (including whitespace) are illegal.** Comments are also not supported.
 
 HQ9+ is technically a programming language in the same way a Subaru Baja is technically a truck. It cannot be used in any meaningful way and its existence is inherently a joke.
 
 More Information:
-[http://cliffle.com/esoterica/hq9plus.html](http://cliffle.com/esoterica/hq9plus.html)
-[http://esolangs.org/wiki/HQ9+](http://esolangs.org/wiki/HQ9+)
+*[http://cliffle.com/esoterica/hq9plus.html](http://cliffle.com/esoterica/hq9plus.html)
+*[http://esolangs.org/wiki/HQ9+](http://esolangs.org/wiki/HQ9+)
 
 ## Dependencies
 
@@ -27,7 +27,7 @@ Requires Perl (obviously).
 * ActivePerl 5.20.1 on Windows 10
 * Perl version 5.14.2 on Raspbian Wheezy
 
-## Run
+## Run/Test
 
 Usage: `$ perl HQ9.pl input_file`
 
@@ -36,6 +36,11 @@ Includes a test source file (sample.hq9), containing the following code:
 QQ+QQHH9HQ
 H9HHQHHH+Q
 ```
+
+Using the test file: `$ perl HQ9.pl sample.hq9`
+
+Input files need to be UTF-8 encoded plain text. `*.hq9` extension is recommended, but not required. 
+
 ## Contributors
 
 Erik McLaughlin (http://github.com/erikm6872)
