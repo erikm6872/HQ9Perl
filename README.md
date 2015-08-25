@@ -11,8 +11,7 @@ HQ9+ is an esoteric programming language created by Cliff L Biffle. It consists 
 * 9 : Print the full lyrics to "99 Bottles of Beer"
 * + : Increment the accumulator. This variable serves no purpose and cannot be accessed.
 
-Any characters other than the four listed above (including whitespace and lowercase letters) are illegal.
-**Comments are not supported in any way.**
+Any characters other than the four listed above (including whitespace and lowercase letters) are illegal. **This means that comments are not supported in any way.**
 
 HQ9+ is technically a programming language in the same way a Subaru Baja is technically a truck. It cannot be used in any meaningful way and its existence is inherently a joke.
 
