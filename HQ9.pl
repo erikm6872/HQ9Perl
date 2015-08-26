@@ -44,11 +44,11 @@ while(my $row = <$fh>){
             # 9: Prints the complete canonical lyrics to "99 Bottles of Beer"
             # +: Increments the accumulator. I have no idea what this actually means, so it does nothing.
             
-            case "H"{
+            case "H" {
             	#Print everybody's favorite phrase
                 say "Hello World!";
             }
-            case "Q"{
+            case "Q" {
                 #Print the source code of the input file (Quine)
                 #Open the input file again and print everything in it.
                 open(my $fh, '<:encoding(UTF-8)', $fileName)
@@ -58,7 +58,7 @@ while(my $row = <$fh>){
                     say $row;
                 }
             }
-            case "9"{
+            case "9" {
                 #Print 99 Bottles of Beer lyrics
                 #Start loop at 99 and go down
                 for (my $i=99; $i > 0; $i--) {
@@ -82,7 +82,7 @@ while(my $row = <$fh>){
                     }
                 }
             }
-            case "+"{
+            case "+" {
                 #Increment the accumulator. Again, this variable serves no purpose and cannot be accessed in any way.
                 $accum = $accum + 1; 
             }
