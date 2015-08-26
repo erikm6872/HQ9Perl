@@ -41,15 +41,15 @@ while(my $row = <$fh>){
             # The interpreter accepts the characters H, Q, 9, and + as commands.
             # H: Prints "Hello World!"
             # Q: Prints the entire text of the source code file
-            # 9: Prints the complete canonical lyrics to "99 Bottles of Beer on the Wall"
+            # 9: Prints the complete canonical lyrics to "99 Bottles of Beer"
             # +: Increments the accumulator. I have no idea what this actually means, so it does nothing.
-
-            case "H"{ 
+            
+            case "H"{
+            	#Print everybody's favorite phrase
                 say "Hello World!";
             }
             case "Q"{
-                
-                #Quine Functionality
+                #Print the source code of the input file (Quine)
                 #Open the input file again and print everything in it.
                 open(my $fh, '<:encoding(UTF-8)', $fileName)
                     or die "Could not open file '$fileName' $!";
@@ -59,8 +59,7 @@ while(my $row = <$fh>){
                 }
             }
             case "9"{
-                
-                #Print 99 Bottles of Beer
+                #Print 99 Bottles of Beer lyrics
                 #Start loop at 99 and go down
                 for (my $i=99; $i > 0; $i--) {
                     if ($i == 1) {
@@ -84,16 +83,13 @@ while(my $row = <$fh>){
                 }
             }
             case "+"{
-                #Increments the accumulator. Again, this variable serves no purpose.
+                #Increment the accumulator. Again, this variable serves no purpose and cannot be accessed in any way.
                 $accum = $accum + 1; 
             }
-            
             #If a whitespace character is encountered, print error message and exit
             case " " {
-                die("Error: Unknown keyword [whitespace]\n");
-                
+                die("Error: Unknown keyword [whitespace]\n");  
             }
-            
             #If any other character is encountered, print error message and exit
             else{
                 die("Error: Unknown keyword $cmd\n");
