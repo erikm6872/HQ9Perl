@@ -44,11 +44,11 @@ while(my $row = <$fh>){
             # 9: Prints the complete canonical lyrics to "99 Bottles of Beer"
             # +: Increments the accumulator. I have no idea what this actually means, so it does nothing.
             
-            case "H" {
+            case /^[Hh]$/ {
             	#Print everybody's favorite phrase
                 say "Hello World!";
             }
-            case "Q" {
+            case /^[Qq]$/ {
                 #Print the source code of the input file (Quine)
                 #Open the input file again and print everything in it.
                 open(my $fh, '<:encoding(UTF-8)', $fileName)
