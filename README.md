@@ -37,8 +37,8 @@ Usage: `$ perl HQ9.pl input_file`
 
 Includes a test source file (sample.hq9), containing the following code:
 ```
-QQ+QQHH9HQ
-H9HHQHHH+Q
+Qq+QQHH9HQ
+H9HHQHhH+Q
 ```
 
 Using the test file: `$ perl HQ9.pl sample.hq9`
