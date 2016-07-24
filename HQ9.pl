@@ -50,12 +50,13 @@ sub parse {
             # 9: Prints the complete canonical lyrics to "99 Bottles of Beer"
             # +: Increments the accumulator. I have no idea what this actually means, so it does nothing.
             
-            case "H" {
+            case /^[Hh]$/ {
             	#Print everybody's favorite phrase
                 return hello();
             }
-            case "Q" {
+            case /^[Qq]$/ {
                 return quine();
+                }
             }
             case "9" {
                 #Print 99 Bottles of Beer lyrics
