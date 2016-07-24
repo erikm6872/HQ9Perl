@@ -36,7 +36,13 @@ while(my $row = <$fh>){
     
     #Process each char
     foreach my $cmd (@chars) {
-        switch($cmd) {
+        my $output = parse($cmd);
+		say $output;
+    }
+}
+sub parse {
+	my ($cmd) = @_;
+	switch($cmd) {
             
             # The interpreter accepts the characters H, Q, 9, and + as commands.
             # H: Prints "Hello World!"
@@ -46,45 +52,18 @@ while(my $row = <$fh>){
             
             case "H" {
             	#Print everybody's favorite phrase
-                say "Hello World!";
+                return hello();
             }
             case "Q" {
-                #Print the source code of the input file (Quine)
-                #Open the input file again and print everything in it.
-                open(my $fh, '<:encoding(UTF-8)', $fileName)
-                    or die "Could not open file '$fileName' $!";
-                while(my $row = <$fh>){
-                    chomp $row;
-                    say $row;
-                }
+                return quine();
             }
             case "9" {
                 #Print 99 Bottles of Beer lyrics
                 #Start loop at 99 and go down
-                for (my $i=99; $i > 0; $i--) {
-                    if ($i == 1) {
-                        say "$i bottle of beer on the wall";
-                        say "$i bottle of beer";
-                    }
-                    else{
-                        say "$i bottles of beer on the wall";
-                        say "$i bottles of beer";
-                    }
-                    say "Take one down, pass it around";
-                    
-                    #Declaring a new variable is easier to print
-                    my $minOne = $i-1;
-                    if ($minOne == 1) {
-                        say "$minOne bottle of beer on the wall\n";
-                    }
-                    else{
-                        say "$minOne bottles of beer on the wall\n";
-                    }
-                }
+				return bottles();
             }
             case "+" {
-                #Increment the accumulator. Again, this variable serves no purpose and cannot be accessed in any way.
-                $accum = $accum + 1; 
+                return accumulate();
             }
             #If a whitespace character is encountered, print error message and exit
             case " " {
@@ -95,5 +74,50 @@ while(my $row = <$fh>){
                 die("Error: Unknown keyword $cmd\n");
             }
         }
+}
+sub hello {
+	return "Hello World!\n";
+}
+sub quine {
+	#Print the source code of the input file (Quine)
+    #Open the input file again and print everything in it.
+    open(my $fh, '<:encoding(UTF-8)', $fileName)
+		or die "Could not open file '$fileName' $!";
+	my $output = "";
+    while(my $row = <$fh>){
+        chomp $row;
+        $output = $output . $row . "\n";
     }
+	return $output;
+}
+sub bottles {
+	#Print 99 Bottles of Beer lyrics
+    #Start loop at 99 and go down
+	
+	my $output = "";
+	
+    for (my $i=99; $i > 0; $i--) {
+        if ($i == 1) {
+            $output = $output . "$i bottle of beer on the wall\n$i bottle of beer\n";
+        }
+        else{
+            $output = $output . "$i bottles of beer on the wall\n$i bottles of beer\n";
+        }
+        $output = $output . "Take one down, pass it around\n";
+        
+        #Declaring a new variable is easier to print
+        my $minOne = $i-1;
+        if ($minOne == 1) {
+            $output = $output . "$minOne bottle of beer on the wall\n\n";
+        }
+        else{
+            $output = $output . "$minOne bottles of beer on the wall\n\n";
+        }
+    }
+	return $output;
+}
+sub accumulate {
+	#Increment the accumulator. Again, this variable serves no purpose and cannot be accessed in any way.
+    $accum = $accum + 1;
+	return "";
 }
